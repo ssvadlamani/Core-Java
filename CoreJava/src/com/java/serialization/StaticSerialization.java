@@ -8,13 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class TestJava implements Serializable{
+public class StaticSerialization implements Serializable{
     public static int k = 10;
     public int j=5;
 public static void main(String[] args) {
     
-    TestJava tj1= new TestJava();
-    TestJava tj2;
+    StaticSerialization tj1= new StaticSerialization();
+    StaticSerialization tj2;
     
     
         try{ //serialization
@@ -37,7 +37,7 @@ public static void main(String[] args) {
           try{ //deserialization
               FileInputStream fis = new FileInputStream("E:\\Test location\\Serialization\\myclass.ser");
               ObjectInputStream ois = new ObjectInputStream(fis);
-              tj2 = (TestJava) ois.readObject();
+              tj2 = (StaticSerialization) ois.readObject();
               ois.close();
               fis.close();
               System.out.println("object DEEEEserielized 1..."+tj2.j);
